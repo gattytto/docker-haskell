@@ -23,6 +23,7 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
         cabal-install-${CABAL_INSTALL} \
         curl \
         g++ \
+        wget \
         git \
         libsqlite3-dev \
         libtinfo-dev \
