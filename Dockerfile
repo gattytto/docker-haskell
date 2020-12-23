@@ -33,7 +33,7 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
         xz-utils \
         zlib1g-dev && \
     rm -rf "$GNUPGHOME" /var/lib/apt/lists/* && \
-    wget https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb10-linux.tar.xz && tar -x ghc-8.10.3-x86_64-deb10-linux.tar.xz && \
+    wget https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb10-linux.tar.xz && tar -xzf ghc-8.10.3-x86_64-deb10-linux.tar.xz && \
     cd ghc-8.10.3 && \
     ./configure && make && make install
 
