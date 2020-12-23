@@ -23,7 +23,6 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
         cabal-install-${CABAL_INSTALL} \
         curl \
         g++ \
-        ghc-${GHC} \
         git \
         libsqlite3-dev \
         libtinfo-dev \
@@ -32,7 +31,10 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
         openssh-client \
         xz-utils \
         zlib1g-dev && \
-    rm -rf "$GNUPGHOME" /var/lib/apt/lists/*
+    rm -rf "$GNUPGHOME" /var/lib/apt/lists/* && \
+    wget https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb10-linux.tar.xz && tar -x ghc-8.10.3-x86_64-deb10-linux.tar.xz && \
+    cd ghc-8.10.3
+    ./configure && make && make install
 
 RUN export GNUPGHOME="$(mktemp -d)" && \
     gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys ${STACK_KEY} && \
