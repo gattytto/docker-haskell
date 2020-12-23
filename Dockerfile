@@ -31,6 +31,7 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
         netbase \
         openssh-client \
         xz-utils \
+        libnuma-dev \
         zlib1g-dev && \
     rm -rf "$GNUPGHOME" /var/lib/apt/lists/* && \
     wget https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb10-linux.tar.xz && tar -xJf ghc-8.10.3-x86_64-deb10-linux.tar.xz && \
