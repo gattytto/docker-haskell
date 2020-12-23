@@ -36,7 +36,8 @@ RUN export GNUPGHOME="$(mktemp -d)" && \
     rm -rf "$GNUPGHOME" /var/lib/apt/lists/* && \
     wget https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb10-linux.tar.xz && tar -xJf ghc-8.10.3-x86_64-deb10-linux.tar.xz && \
     cd ghc-8.10.3 && \
-    ./configure && make install
+    ./configure && make install && \
+    cd .. && rm -rf ghc-8.10.3 *.tar.xz
 
 RUN export GNUPGHOME="$(mktemp -d)" && \
     gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys ${STACK_KEY} && \
