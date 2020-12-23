@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM jitesoft/debian:buster
 
 ENV LANG C.UTF-8
 
